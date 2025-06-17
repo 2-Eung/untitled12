@@ -1,17 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        int a = 10;
-        int b = 0;
-//        int result = a / b;           // 0 으로 나눴을때 발생하는 오류는 런타임 오류 이다.
-// Exception in thread "main" java.lang.ArithmeticException: / by zero
-//        System.out.println(result);
+        String input = "123a";
+//        int number = Integer.parseInt(input);  // 숫자를 입력받아야하는데 문자가 포함돼 오류
+// Exception in thread "main" java.lang.NumberFormatException: For input string: "123a"
         try {
-            int result = a / b;
-            System.out.println(result);                        // : 수학적 요류
-        } catch (ArithmeticException e) {  // ArithmeticException : 0 으로 나눴을때 발생하는 오류
-            System.out.println(e.getMessage());    // 기존 클래스에 작성된 에러메세지
-            System.out.println(e.toString());      // 기존 클래스에 작성된 에러메세지 (자세한버전)
-            System.out.println("Error: Division by zero."); // 사용자가 쓴 에러메세지
+            int number = Integer.parseInt(input);
+            System.out.println("당신이 입력한 숫자는 " + number + "입니다.");
+        } catch(NumberFormatException e) {  // NumberFormatException : 숫자 입력에서 문자가 포함된 오류
+            System.out.println(e.getMessage());
+            System.out.println(e.toString());
+            System.out.println("숫자 포맷이 아닙니다.");
         }
     }
 }

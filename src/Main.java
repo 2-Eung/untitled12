@@ -1,22 +1,16 @@
-
 public class Main {
     public static void main(String[] args) {
-        String input = "100";
+        int a = 10;
+        int b = 2;
 
         try {
-            validateTokenCount(input);
-
-
-            System.out.println("숫자 2개");
-        } catch(NumberFormatException e) {
-            System.out.println(e.getMessage());
-        }
-
-    }
-
-    public static void validateTokenCount(String tokens) throws NumberFormatException {
-        if (tokens.length() != 2) {
-            throw new NumberFormatException("숫자 2개가 아닙니다.");
+            int result = a / b;
+            System.out.println("Result : "+ result);
+        } catch (NumberFormatException e) {
+            System.out.println("Error : 0 으로 나눌수 없음");
+        } finally {
+            System.out.println("Cleanup : 이 블록은 항상 실행됩니다.");
         }
     }
+
 }

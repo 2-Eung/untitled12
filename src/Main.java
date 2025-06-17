@@ -1,17 +1,17 @@
-class Util {
-    public static void sayHello(String name) {
-        System.out.println("Hello, " + name);
-    }
-}
-@FunctionalInterface
-interface A {
-    public void say(String name);
-}
 public class Main {
     public static void main(String[] args) {
-        A a = (name) -> Util.sayHello(name); // '람다식' 으로 클래스의 함수를 호출
-        A aa = Util::sayHello;                     // '메소드 참조'
-        a.say("가가가");
-        aa.say("나나나");
+        int a = 10;
+        int b = 0;
+//        int result = a / b;           // 0 으로 나눴을때 발생하는 오류는 런타임 오류 이다.
+// Exception in thread "main" java.lang.ArithmeticException: / by zero
+//        System.out.println(result);
+        try {
+            int result = a / b;
+            System.out.println(result);                        // : 수학적 요류
+        } catch (ArithmeticException e) {  // ArithmeticException : 0 으로 나눴을때 발생하는 오류
+            System.out.println(e.getMessage());    // 기존 클래스에 작성된 에러메세지
+            System.out.println(e.toString());      // 기존 클래스에 작성된 에러메세지 (자세한버전)
+            System.out.println("Error: Division by zero."); // 사용자가 쓴 에러메세지
+        }
     }
 }

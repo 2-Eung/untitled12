@@ -2,16 +2,26 @@
 
 public class Main {
     public static void main(String[] args) {
-        String strNum = "123a";
+        String input = "10";
+        NumberFormatException e = new NumberFormatException();
+        System.out.println(e);
 
         try {
-            int num = convertToInt(strNum);
-            System.out.println("변환결과: " + num);
-        } catch (NumberFormatException e) {
-            System.out.println("숫자 형식 오류!");
+            boolean resurt = validateTokenCount(input);
+
+        if (resurt) {
+            System.out.println("숫자 2개");
+            }
+
+        } catch (NumberFormatException s) {
+            System.out.println(e.getMessage());
         }
     }
-    public static int convertToInt(String s) throws NumberFormatException {  // NumberFormatException 이친구에게
-        return Integer.parseInt(s);                                         // 떠넘긴다.
+
+    public static boolean validateTokenCount(String tokens) throws NumberFormatException {
+        if (tokens.length() !=2) {
+            throw new NumberFormatException("숫자 2개가 아닙니다.");
+        }
+        return true;
     }
 }

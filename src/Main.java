@@ -1,15 +1,17 @@
+
+
 public class Main {
     public static void main(String[] args) {
-        String input = "123a";
-//        int number = Integer.parseInt(input);  // 숫자를 입력받아야하는데 문자가 포함돼 오류
-// Exception in thread "main" java.lang.NumberFormatException: For input string: "123a"
+        String strNum = "123a";
+
         try {
-            int number = Integer.parseInt(input);
-            System.out.println("당신이 입력한 숫자는 " + number + "입니다.");
-        } catch(NumberFormatException e) {  // NumberFormatException : 숫자 입력에서 문자가 포함된 오류
-            System.out.println(e.getMessage());
-            System.out.println(e.toString());
-            System.out.println("숫자 포맷이 아닙니다.");
+            int num = convertToInt(strNum);
+            System.out.println("변환결과: " + num);
+        } catch (NumberFormatException e) {
+            System.out.println("숫자 형식 오류!");
         }
+    }
+    public static int convertToInt(String s) throws NumberFormatException {  // NumberFormatException 이친구에게
+        return Integer.parseInt(s);                                         // 떠넘긴다.
     }
 }

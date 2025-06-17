@@ -1,16 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        int a = 10;
-        int b = 2;
+        String input = "123a";
 
         try {
-            int result = a / b;
-            System.out.println("Result : "+ result);
+            int number = Integer.parseInt(input);
+
+            System.out.println("Parse number: " + number);
         } catch (NumberFormatException e) {
-            System.out.println("Error : 0 으로 나눌수 없음");
+            System.out.println("Error: Unable to parse the input");
         } finally {
-            System.out.println("Cleanup : 이 블록은 항상 실행됩니다.");
+            System.out.println("Process completed.");
         }
     }
-
 }

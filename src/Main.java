@@ -1,14 +1,17 @@
-import java.util.Arrays;
-
+class Util {
+    public static void sayHello(String name) {
+        System.out.println("Hello, " + name);
+    }
+}
+@FunctionalInterface
+interface A {
+    public void say(String name);
+}
 public class Main {
     public static void main(String[] args) {
-        String[] name = {"가가가", "나나나", "다다다", "라라라"};
-
-        for (String n : name) {                                             // 'for'로 출력
-            System.out.println(n);
-        }
-        Arrays.stream(name).forEach(nn -> System.out.println(nn));    // '람다식'으로 출력
-
-        Arrays.stream(name).forEach(System.out::println);                   // '메서드 참조'로 출력
+        A a = (name) -> Util.sayHello(name); // '람다식' 으로 클래스의 함수를 호출
+        A aa = Util::sayHello;                     // '메소드 참조'
+        a.say("가가가");
+        aa.say("나나나");
     }
 }
